@@ -54,14 +54,15 @@ h1{
     display: flex;
     padding-top: 0.5em;
     justify-content: center;
-    overflow: auto;
-    -webkit-transition: max-height .5s, padding .5s;
-    transition: max-height .5s, padding .5s;
+    overflow: hidden;
     max-height: 0;
+    transition: .5s;
+    opacity: 0;
 }
 
 .image{
     max-width: 100%;
+    max-height: 100%;
 }
 
 .mem-input{
@@ -76,12 +77,22 @@ h1{
     opacity: 0;
 }
 
-.mem-input:checked ~ .img-wrapper{
-    max-height: 100%;
+.mem-input:checked ~.img-wrapper{
+    max-height: 31em;
+    opacity: 100%;
+    /* transition: .5s; */
 }
 
-.mem-input:checked  + .mem-title{
+.mem-input:checked + .mem-title {
     color: black;
+}
+
+.mem-item:active > .mem-title > .plus{
+    filter: brightness(0) saturate(100%) invert(8%) sepia(98%) saturate(6825%) hue-rotate(246deg) brightness(103%) contrast(145%);
+}
+
+.mem-item:active .mem-title {
+    color: blue !important;
 }
 
 @media (max-width: 1921px) {
@@ -94,8 +105,10 @@ h1{
         color: black;
     }
 
-    .mem-item:hover .img-wrapper{
-        max-height: 100%;
+    .mem-item:hover > .img-wrapper{
+        max-height: 31em;
+        opacity: 100%;
+        /* transition: .5s; */
     }
 
     .mem-item:hover > .mem-title > .plus{
@@ -134,9 +147,17 @@ h1{
     .mem-list{
         width: 80%;
     }
+    
+    h1{
+        font-size: 2em;
+    }
 }
 
 @media (max-width: 677px) {
+
+    h1 {
+        font-size: 1.5em;
+    }
 
     .mem-title{
         font-size: 0.9em;
