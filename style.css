@@ -80,11 +80,16 @@ h1{
 .mem-input:checked ~.img-wrapper{
     max-height: 31em;
     opacity: 100%;
-    /* transition: .5s; */
+    transition: .5s;
 }
 
 .mem-input:checked + .mem-title {
     color: black;
+}
+
+.mem-input:checked  + .mem-title > .plus {
+    transform: rotate(45deg);
+    opacity: 100%;
 }
 
 .mem-item:active > .mem-title > .plus{
@@ -108,15 +113,10 @@ h1{
     .mem-item:hover > .img-wrapper{
         max-height: 31em;
         opacity: 100%;
-        /* transition: .5s; */
+        transition: .5s;
     }
 
     .mem-item:hover > .mem-title > .plus{
-        transform: rotate(45deg);
-        opacity: 100%;
-    }
-
-    .mem-input:checked  + .mem-title > .plus {
         transform: rotate(45deg);
         opacity: 100%;
     }
